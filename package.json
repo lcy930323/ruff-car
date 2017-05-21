@@ -1,0 +1,19 @@
+{
+    "name": "car",
+    "version": "0.1.0",
+    "description": "ruff car ruff-car",
+    "author": "Sunlight",
+    "main": "src/index.js",
+    "ruff": {
+        "boards": {
+            "ruff-mbd-v1": "^4.2.2",
+            "*": "*"
+        },
+        "dependencies": {
+            "hg7881": "^1.1.1",
+            "home": "^0.1.8",
+            "socket.io": "^2.0.1",
+            "ws": "^1.1.2"
+        }
+    }
+}

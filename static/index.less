@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+}
+
+* {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -khtml-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.controller {
+    text-align: center;
+    padding: 20px;
+    button {
+        -webkit-appearance: none;
+        display: inline-block;
+        border-radius: 0;
+        padding: 12px 18px;
+        & + button {
+            margin-left: 10px;
+        }
+    }
+}
+
+.rocker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+
+    .top,
+    .bottom,
+    .left,
+    .right,
+    .stop {
+        position: absolute;
+        background-color: #d67878;
+        transition: all 0.1s;
+
+        &:active {
+            opacity: 0.6;
+        }
+    }
+
+
+    .stop {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .top,
+    .bottom {
+        width: 80px;
+        height: 100px;
+    }
+
+    .left,
+    .right {
+        width: 100px;
+        height: 80px;
+    }
+
+    .left {
+        left: 0;
+        top: 50%;
+        margin-top: -40px;
+    }
+
+    .right {
+        right: 0;
+        top: 50%;
+        margin-top: -40px;
+    }
+
+    .top {
+        left: 50%;
+        top: 0;
+        margin-left: -40px;
+    }
+
+    .bottom {
+        left: 50%;
+        bottom: 0;
+        margin-left: -40px;
+    }
+}
+
+
+.joyStick {
+    position: absolute;
+    left: 0;
+    margin: auto;
+    bottom: 80px;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: data-uri('./bg.png') no-repeat;
+    background-size: cover;
+}
+
+.shoudian {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 64px;
+    height: 64px;
+    background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACABAMAAAAxEHz4AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAYUExURQAAACwsLCwsLCwsLCwsLCwsLCwsLCwsLBLXEn8AAAAHdFJOUwBxpFgkxIkasu3VAAACQUlEQVRo3u2ZvW/CMBDFAwRYU6lSV9SFlaofrKitxFpVRaxsrNAC9+83EKTcEd/dSzLQSn5TCfYPv7Nztq9JEvX3dUeZ+Pw2sdt3FrJ9l+hbfE80s/qnRCQezEn2mBJtLEA/b59JB/JB/nFrAYZ5gx1/sM4frIQj2nsAMgC5AxmTkAXe4QJwDBH9eEEUHiTgxB850y49SMDlt5qHkQLwHVTbCMDwMkIhHePMlo4ArH0HxUzTRxBQiXBYJBYbB5wcZC5gKsbJAVNvGRYaiCAcO00YbAdkAAEYsuFwmKU5t5Au6YutkT2SgwZiIaTv5d9jNj2Wng9K0kmfYor31HvEFQpzj2porywgXIHEtq4FCGwvy7aAcVtA6xgM2s5C8rqA9TmJr42ml3tMt9aWACm8QdZ4HQ9qPkc1a+dA2SLrvM8r9YgGqm0QlXPOMSNsbzwZJ7W5Gl+wUU9JNZXdXz2pLb2z9Om8T/omDXiwm3R8D2QP0vVgOwA8eA1cD+QN0WngB8kZoj9NA/sn9GSCeQCm2R4k8rJ0rR8h79LmeEAcVK4sFQfutmp4gBwUF5ut6gC4MKgeMAfnq+NGcYBcGDQPqIPzBXcW3jYyBNDXAdCVp/Aw84sT4L1NADZXAJR1pGYAVkdqBmB1pGYAVkdqBmC39wiIgAhoA2DFp2YAVslqBkjLTNwwJ5bFp2tl5QiIgAj494Bq8WhcDwCXIbUbdFhYcb44bePVnzrlHLTEXbN4g3vIUEAa7r9LYKUPgQJS/P+Gpl+aojYSF57QmQAAAABJRU5ErkJggg==");
+    background-size: cover;
+
+    &.active {
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACABAMAAAAxEHz4AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAYUExURQAAABKW2xKW2xKW2xKW2xKW2xKW2xKW27RYiKMAAAAHdFJOUwBxpFgkxIkasu3VAAACQUlEQVRo3u2ZvW/CMBDFAwRYU6lSV9SFlaofrKitxFpVRaxsrNAC9+83EKTcEd/dSzLQSn5TCfYPv7Nztq9JEvX3dUeZ+Pw2sdt3FrJ9l+hbfE80s/qnRCQezEn2mBJtLEA/b59JB/JB/nFrAYZ5gx1/sM4frIQj2nsAMgC5AxmTkAXe4QJwDBH9eEEUHiTgxB850y49SMDlt5qHkQLwHVTbCMDwMkIhHePMlo4ArH0HxUzTRxBQiXBYJBYbB5wcZC5gKsbJAVNvGRYaiCAcO00YbAdkAAEYsuFwmKU5t5Au6YutkT2SgwZiIaTv5d9jNj2Wng9K0kmfYor31HvEFQpzj2porywgXIHEtq4FCGwvy7aAcVtA6xgM2s5C8rqA9TmJr42ml3tMt9aWACm8QdZ4HQ9qPkc1a+dA2SLrvM8r9YgGqm0QlXPOMSNsbzwZJ7W5Gl+wUU9JNZXdXz2pLb2z9Om8T/omDXiwm3R8D2QP0vVgOwA8eA1cD+QN0WngB8kZoj9NA/sn9GSCeQCm2R4k8rJ0rR8h79LmeEAcVK4sFQfutmp4gBwUF5ut6gC4MKgeMAfnq+NGcYBcGDQPqIPzBXcW3jYyBNDXAdCVp/Aw84sT4L1NADZXAJR1pGYAVkdqBmB1pGYAVkdqBmC39wiIgAhoA2DFp2YAVslqBkjLTNwwJ5bFp2tl5QiIgAj494Bq8WhcDwCXIbUbdFhYcb44bePVnzrlHLTEXbN4g3vIUEAa7r9LYKUPgQJS/P+Gpl+aojYSF57QmQAAAABJRU5ErkJggg==");
+    }
+}
+
+.gan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    width: 123px;
+    height: 123px;
+    background: data-uri('./gan.png') no-repeat;
+    background-size: cover;
+}

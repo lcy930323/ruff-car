@@ -1,0 +1,11 @@
+{
+    "name": "hg7881",
+    "version": "1.1.1",
+    "description": "",
+    "author": "ethan",
+    "main": "src/index.js",
+     "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EthanChenLi/hg7881"
+    }
+}
