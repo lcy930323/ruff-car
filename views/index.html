@@ -442,7 +442,6 @@
                 $el: $('.joyStick')
             })
 
-
             $('.shoudian').on('click', function () {
                 var status = $(this).data('status');
 
@@ -466,61 +465,9 @@
             $('body').on('touchmove', function (e) {
                 return false;
             })
-//
-//            $('.rocker div').on('touchstart', function () {
-//                var url = $(this).data('url');
-//                send(url);
-//                isOut = false;
-//            })
-//
-//            var isOut = false;
-//            $('.rocker div').on('touchmove', function (e) {
-//
-//                if( isOut === true ) {
-//                    return false
-//                }
-//
-//                var tev = e.touches[0];
-//
-//                var x = tev.clientX;
-//                var y = tev.clientY;
-//
-//                var el = e.currentTarget;
-//
-//                var offset = $(el).offset();
-//
-//                var left = offset.left;
-//                var top = offset.top;
-//                var width = el.offsetWidth;
-//                var height = el.offsetHeight;
-//
-//                var inX = x > left && x < left + width;
-//                var inY = y > top && y < top + height;
-//
-//
-//                if ( inX && inY ) {
-//
-//                } else {
-//                    isOut = true;
-//                    send('/stop');
-//                }
-//            })
-//            $('.rocker div').on('touchend', function () {
-//                send('/stop');
-//            })
             function send(url) {
                 sendMsg({
                     type: url
-                })
-                return ;
-                $.ajax({
-                    url: url,
-                    success: function (ret) {
-                        console.log(ret)
-                    },
-                    error: function (e) {
-                        console.log(e)
-                    }
                 })
             }
         })

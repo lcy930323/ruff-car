@@ -7,10 +7,7 @@ var WebSocketServer = require('ws').Server,
         port: 8888
     });
 
-
 server.use('/', Server.static('static'));
-
-var carStatus = 'stop';
 
 server.get('/', function (req, res) {
     return {
@@ -23,7 +20,6 @@ server.get('/', function (req, res) {
 //前进
 server.get('/up', function (req) {
     $("#hg7881").turnUp();
-    carStatus = 'up';
     return {
         sn: process.ruff.sn,
         status: 'success',
@@ -34,7 +30,6 @@ server.get('/up', function (req) {
 //后退
 server.get('/down', function (req) {
     $("#hg7881").turnDown();
-    carStatus = 'down';
     return {
         sn: process.ruff.sn,
         status: 'success',
@@ -45,7 +40,6 @@ server.get('/down', function (req) {
 //左转
 server.get('/left', function (req) {
     $("#hg7881").turnLeft();
-    carStatus = 'left';
     return {
         sn: process.ruff.sn,
         status: 'success',
@@ -56,7 +50,6 @@ server.get('/left', function (req) {
 //右转
 server.get('/right', function (req) {
     $("#hg7881").turnRight();
-    carStatus = 'right';
     return {
         sn: process.ruff.sn,
         status: 'success',
@@ -65,7 +58,6 @@ server.get('/right', function (req) {
 })
 server.get('/stop', function (req) {
     $("#hg7881").turnStop();
-    carStatus = 'stop';
     return {
         sn: process.ruff.sn,
         status: 'success',
@@ -75,11 +67,8 @@ server.get('/stop', function (req) {
 
 
 
-
 //广播
 wss.broadcast = function broadcast(s, ws) {
-    // console.log(ws);
-    // debugger;
     wss.clients.forEach(function each(client) {
     });
 };
@@ -108,9 +97,8 @@ $.ready(function (error) {
 
     // 初始化
     wss.on('connection', function(ws) {
-        // console.log(ws.clients.session);
-        // console.log("在线人数", wss.clients.length);
-        ws.send('你是第' + wss.clients.length + '位上帝');
+
+        ws.send('你是第' + wss.clients.length + '位连接的用户');
         // 发送消息
         ws.on('message', function(jsonStr) {
             console.log( jsonStr )
@@ -126,10 +114,10 @@ $.ready(function (error) {
                 console.log('parse error', jsonStr, e)
             }
         });
-        // 退出聊天
+
+        // 退出
         ws.on('close', function(close) {
             try{
-                // wss.broadcast(0, this.user.name);
             }catch(e){
                 console.log('刷新页面了');
             }
@@ -154,24 +142,6 @@ $.ready(function (error) {
     }
 
     blink();
-
-
-    server.get('/lightOn', function (req) {
-        lightOn();
-        return {
-            sn: process.ruff.sn,
-            status: 'success',
-            direction:'onLight',
-        };
-    })
-    server.get('/lightOff', function (req) {
-        lightOff();
-        return {
-            sn: process.ruff.sn,
-            status: 'success',
-            direction:'offLight',
-        };
-    })
 
     // $('#led-r').turnOn();
 });
